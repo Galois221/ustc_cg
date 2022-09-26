@@ -47,7 +47,7 @@ DArray::~DArray()
 
 
 
-int		DArray::InitArray( )
+int		DArray::InitArray( ) //≥ı ºªØArray
 {
 	n = 0;
 	pData = NULL;
