@@ -1,7 +1,8 @@
 // implementation of class DArray
 #include "DArray.h"
-#include<iostream>
+#include <iostream>
 #include <cassert>  //import assert.h
+using namespace std;
 
 // default constructor
 DArray::DArray() {
@@ -11,16 +12,16 @@ DArray::DArray() {
 // set an array with default values
 DArray::DArray(int nSize, double dValue) {
 	m_pData = new double[nSize];
-	m_nSize = nSize;
+	m_nSize = nSize;																	
 
 	for (int i = 0; i < nSize; i++)  m_pData[i] = dValue;
 }
 
 DArray::DArray(const DArray& arr) {
 	m_pData = new double[arr.m_nSize];
-	m_nSize = nSize;
+	m_nSize = arr.m_nSize;
 
-	for (int i = 0; i < nSize; i++) m_pData[i] = arr.m_pData[i];
+	for (int i = 0; i < arr.m_nSize; i++) m_pData[i] = arr.m_pData[i];
 }
 
 // deconstructor
@@ -30,7 +31,7 @@ DArray::~DArray() {
 
 // display the elements of the array
 void DArray::Print() const {
-	cout << "size = " << m_nSize;
+	cout<< "size = " << m_nSize;
 	for (int i = 0; i < m_nSize; i++)
 		cout << "\t" << GetAt(i);
 	cout << endl;
@@ -40,7 +41,7 @@ void DArray::Print() const {
 // initilize the array
 void DArray::Init() {
 	m_pData = nullptr;  
-	m_pSize = 0;
+	m_nSize = 0;
 }
 
 // free the array
@@ -57,9 +58,9 @@ int DArray::GetSize() const {
 
 // set the size of the array
 void DArray::SetSize(int nSize) {
-	if (n_Size == m_nSize) return;
+	if (nSize == m_nSize) return;
 
-	double pData = new double[nSize];
+	double *pData = new double[nSize];
 	int cp = nSize < m_nSize ? nSize : m_nSize;  //copy the similar part of m_nSize;
 	for (int i = 0; i < cp; i++) pData[i] = m_pData[i];
 	for (int i = cp; i < nSize; i++) pData[i] = 0;
@@ -82,6 +83,10 @@ void DArray::SetAt(int nIndex, double dValue) {
 	m_pData[nIndex] = dValue;
 }
 
+double& DArray::operator[](int nIndex) {
+	assert(nIndex >= 0 && nIndex < m_nSize);
+	return m_pData[nIndex];
+}
 // overload operator '[]'  ,eg array[3];
 const double& DArray::operator[](int nIndex) const {
 	assert(nIndex >= 0 && nIndex < m_nSize);

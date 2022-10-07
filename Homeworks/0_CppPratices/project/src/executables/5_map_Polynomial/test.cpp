@@ -7,11 +7,11 @@
 #include <ctime>
 
 using namespace std;
-
+//产生测试集，deg用来存储次数，cof用来存储系数
 void generateTestCase(int size, vector<int>& deg, vector<double>& cof) {
     deg.clear(); cof.clear();
     for (int i = 0; i < size; i++) {
-        int c = rand() % 10000;
+        int c = rand() % 10000; 
         double val = (double)(rand() % 100);
         deg.push_back(c);
         cof.push_back(val);
@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
     vector<double> cof0, cof1;
     generateTestCase(5, deg0, cof0);
     generateTestCase(5, deg1, cof1);
-    cout << "Test List:" << endl;
+    cout << "Test List:" << endl; //测试List的结果
     testList.testOperationFromGivenData(deg0, cof0, deg0, cof1, true);
     cout << "Test Map: " << endl;
     testMap.testOperationFromGivenData(deg0, cof0, deg0, cof1, true);

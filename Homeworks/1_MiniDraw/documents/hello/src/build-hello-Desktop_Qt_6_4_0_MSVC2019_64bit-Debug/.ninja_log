@@ -1,0 +1,9 @@
+# ninja log v5
+1	339	6868129267886517	hello_autogen/timestamp	aabd4498fdcb6242
+1	339	6868129267886517	hello_autogen/mocs_compilation.cpp	aabd4498fdcb6242
+1	339	6868129267886517	D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/hello/src/build-hello-Desktop_Qt_6_4_0_MSVC2019_64bit-Debug/hello_autogen/timestamp	aabd4498fdcb6242
+1	339	6868129267886517	D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/hello/src/build-hello-Desktop_Qt_6_4_0_MSVC2019_64bit-Debug/hello_autogen/mocs_compilation.cpp	aabd4498fdcb6242
+341	2204	6868129287183425	CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj	fab0f722a4658826
+343	2210	6868129287183425	CMakeFiles/hello.dir/main.cpp.obj	bbaa3f2e7cafa9b6
+345	2215	6868129287295542	CMakeFiles/hello.dir/mainwindow.cpp.obj	1e520a8f0234e996
+2216	2592	6868129290813131	hello.exe	18c7fd227225e755

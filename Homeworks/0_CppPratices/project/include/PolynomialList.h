@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-class DECLSPEC_PolynomialList PolynomialList
+class  PolynomialList
 {
 public:
     PolynomialList() { };
@@ -23,10 +23,10 @@ public:
     PolynomialList(const double* cof, const int* deg, int n);
     PolynomialList(const std::vector<int>& deg, const std::vector<double>& cof);
 
-    double& coff(int i);
+    double& coff(int i); //返回第i次项的系数
     double coff(int i) const;
 
-    void compress();
+    void compress(); //get rid of unnecessary items
 
     // overload
     PolynomialList operator+(const PolynomialList& right) const; //Overload operator +
@@ -35,6 +35,7 @@ public:
     PolynomialList& operator=(const PolynomialList& right); //Overload operator =
 
     void Print() const;
+
 
 private:
     struct Term {
@@ -45,8 +46,10 @@ private:
         Term() : Term(0, 0) { }
     };
     bool ReadFromFile(const std::string& file);
-    Term& AddOneTerm(const Term& term); // add one term into m_Polynomial
+    Term& AddOneTerm(const Term& term); // add one term into m_Polynomial,return this term
 
 private:
     std::list<Term> m_Polynomial; // high degree -> low degree
+    //用一个列表来储存一个多项式
 };
+

@@ -13,7 +13,7 @@ public:
     PolynomialMap(const double* cof, const int* deg, int n);
     PolynomialMap(const std::vector<int>& deg, const std::vector<double>& cof);
 
-    double& coff(int i);
+    double& coff(int i); //返回m_polynomial第i项的系数
     double coff(int i) const;
 
     void compress();

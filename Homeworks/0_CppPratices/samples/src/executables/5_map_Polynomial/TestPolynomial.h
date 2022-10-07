@@ -24,7 +24,7 @@ public:
         return true;
     }
 
-    bool testOperationCorrectness() {
+    bool testOperationCorrectness() { //测试操作是否正确                                                                                                                                                               
         std::cout << "test OperationCorrectness" << std::endl;
         Polynomial p0;
         p0.coff(2) = 3;
@@ -46,8 +46,9 @@ public:
         return true;
     }
 
+    //从已有数据开始测试
     bool testConstructorFromGivenData(const std::vector<int>& deg, const std::vector<double>& cof) {
-        clock_t t0 = clock();
+        clock_t t0 = clock(); //用来记录时间的东西
         std::cout << "Test Constructor with Size: " << deg.size() << std::endl;
         Polynomial p(deg, cof);
         std::cout << "Test Constructor time: " << clock() - t0 << std::endl;
@@ -56,7 +57,7 @@ public:
     }
 
     bool testOperationFromGivenData(const std::vector<int>& deg0, const std::vector<double>& cof0,
-        const std::vector<int>& deg1, const std::vector<double>& cof1, bool showOutput = false)
+        const std::vector<int>& deg1, const std::vector<double>& cof1, bool showOutput = false) //showOutput表示是否显示
     {
         clock_t t0 = clock();
         Polynomial p0(deg0, cof0);
