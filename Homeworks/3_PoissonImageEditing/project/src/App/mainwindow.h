@@ -38,7 +38,11 @@ private slots:
 
 	// Poisson Image Editing
 	void ChooseRect();							// Choose rectangle region
+	void ChoosePoly();                          // Choose polygon region
+	void ChooseFreehand();                      // Choose freehand region
 	void Paste();								// Paste rect region to object image
+	void Paste_mix();
+	void Copy();                                // Selected points to achieve matrix pre-decomposition
 
 private:
 	void CreateActions();
@@ -67,9 +71,12 @@ private:
 	QAction						*action_gray_;
 	QAction						*action_restore_;
 
+	QAction                     *action_choose_rect_;
 	QAction						*action_choose_polygon_;
+	QAction                     * action_choose_freehand_;
 	QAction						*action_copy_;
 	QAction						*action_paste_;
+	QAction                     *action_paste_mix_;
 
 	QMdiArea					*mdi_area_;
 	QSignalMapper				*window_mapper_;

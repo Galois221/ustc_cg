@@ -1,5 +1,12 @@
 #pragma once
 #include <QWidget>
+#include <Eigen/Dense>
+#include <Figure.h>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/core/core.hpp>
+#include <Eigen\Sparse>
+#include <Eigen\Dense>
 
 class ChildWindow;
 QT_BEGIN_NAMESPACE
@@ -7,9 +14,16 @@ class QImage;
 class QPainter;
 QT_END_NAMESPACE
 
+using namespace Eigen;
+typedef Eigen::SparseMatrix<double> SparseMatrixType;
+typedef Eigen::Triplet<double> T;
+typedef Eigen::SimplicialCholesky<SparseMatrixType> Solver;
+
 enum DrawStatus
 {
-	kChoose, 
+	kRect,
+	kPoly,
+	kFree,
 	kPaste, 
 	kNone
 };
@@ -25,10 +39,13 @@ public:
 
 	int ImageWidth();											// Width of image
 	int ImageHeight();											// Height of image
-	void set_draw_status_to_choose();
+	void set_draw_status_to_Rect();
+	void set_draw_status_to_Poly();
+	void set_draw_status_to_Free();
 	void set_draw_status_to_paste();
-	QImage* image();
+	void set_draw_status_to_paste_mix();
 	void set_source_window(ChildWindow* childwindow);
+	cv::Mat image();
 
 protected:
 	void paintEvent(QPaintEvent *paintevent);
@@ -47,14 +64,18 @@ public slots:
 	void Mirror(bool horizontal=false, bool vertical=true);		// Mirror image vertically or horizontally
 	void TurnGray();											// Turn image to gray-scale map
 	void Restore();												// Restore image to origin
+	void Copy();                                                // Selected points to achieve matrix pre-decomposition
 
 public:
 	QPoint						point_start_;					// Left top point of rectangle region
 	QPoint						point_end_;						// Right bottom point of rectangle region
+	int pos_x, pos_y;
+	int width_select, height_select;
 
 private:
-	QImage						*image_;						// image 
-	QImage						*image_backup_;
+	cv::Mat image_mat_;						 
+	cv::Mat image_mat_backup_;
+	cv::Mat image_mat_undo_;
 
 	// Pointer of child window
 	ChildWindow					*source_window_;				// Source child window
@@ -63,5 +84,11 @@ private:
 	DrawStatus					draw_status_;					// Enum type of draw status
 	bool						is_choosing_;
 	bool						is_pasting_;
+	bool                        polygoning;                      //the status of choose
+	bool                        copied;                          //the copy achieve or not  
+	bool                        mixed;
+	MatrixXd                    selected;
+	Figure                      * figure;
+	Solver* solver;
 };
 

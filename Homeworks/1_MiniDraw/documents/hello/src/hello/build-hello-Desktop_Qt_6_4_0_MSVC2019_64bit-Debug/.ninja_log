@@ -1,0 +1,15 @@
+# ninja log v5
+12	149	6869391721579899	hello_autogen/timestamp	5cff46bdfa3a5c35
+2474	2706	6869391746692487	hello.exe	18c7fd227225e755
+537	4044	6869376952524985	CMakeFiles/hello.dir/main.cpp.obj	a50bfe5219c3c162
+12	149	6869391721579899	hello_autogen/mocs_compilation.cpp	5cff46bdfa3a5c35
+12	149	6869391721579899	D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/hello/src/hello/build-hello-Desktop_Qt_6_4_0_MSVC2019_64bit-Debug/hello_autogen/timestamp	5cff46bdfa3a5c35
+151	2473	6869391744807516	CMakeFiles/hello.dir/mainwindow.cpp.obj	94d0442fa0ad9abe
+12	149	6869391721579899	D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/hello/src/hello/build-hello-Desktop_Qt_6_4_0_MSVC2019_64bit-Debug/hello_autogen/mocs_compilation.cpp	5cff46bdfa3a5c35
+527	4043	6869376952524985	CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj	143556008fba984f
+10	147	6869392979472942	hello_autogen/timestamp	5cff46bdfa3a5c35
+10	147	6869392979472942	hello_autogen/mocs_compilation.cpp	5cff46bdfa3a5c35
+10	147	6869392979472942	D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/hello/src/hello/build-hello-Desktop_Qt_6_4_0_MSVC2019_64bit-Debug/hello_autogen/timestamp	5cff46bdfa3a5c35
+10	147	6869392979472942	D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/hello/src/hello/build-hello-Desktop_Qt_6_4_0_MSVC2019_64bit-Debug/hello_autogen/mocs_compilation.cpp	5cff46bdfa3a5c35
+150	2578	6869393003758006	CMakeFiles/hello.dir/mainwindow.cpp.obj	94d0442fa0ad9abe
+2578	2829	6869393005792614	hello.exe	18c7fd227225e755

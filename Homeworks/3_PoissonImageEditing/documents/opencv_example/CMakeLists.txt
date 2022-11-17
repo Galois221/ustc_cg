@@ -10,6 +10,8 @@ Ubpa_InitProject()
 
 Ubpa_QtInit(COMPONENTS Core Gui Widgets)
 
+set (OpenCV_DIR D:/OpenCV/opencv/build/)
+
 find_package(OpenCV REQUIRED)
 
 Ubpa_AddSubDirsRec(src)

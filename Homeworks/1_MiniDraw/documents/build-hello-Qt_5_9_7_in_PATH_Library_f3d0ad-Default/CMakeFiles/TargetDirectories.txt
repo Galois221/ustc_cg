@@ -1,0 +1,12 @@
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/CMakeFiles/INSTALL.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/CMakeFiles/ALL_BUILD.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/CMakeFiles/ZERO_CHECK.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/_deps/ucmake-build/CMakeFiles/INSTALL.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/_deps/ucmake-build/CMakeFiles/ALL_BUILD.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/_deps/ucmake-build/src/test/00_Basic/CMakeFiles/UCMake_test_00_Basic.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/_deps/ucmake-build/src/test/00_Basic/CMakeFiles/INSTALL.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/src/hello/CMakeFiles/QtExample_hello.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/src/hello/CMakeFiles/INSTALL.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/src/hello/hello/CMakeFiles/hello.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/src/hello/hello/CMakeFiles/INSTALL.dir
+D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/build-hello-Qt_5_9_7_in_PATH_Library_f3d0ad-Default/src/hello/hello/CMakeFiles/ALL_BUILD.dir

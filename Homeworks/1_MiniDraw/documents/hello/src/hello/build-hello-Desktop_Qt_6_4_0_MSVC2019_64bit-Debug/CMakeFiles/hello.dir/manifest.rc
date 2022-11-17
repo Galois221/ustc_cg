@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "D:/Documents/ustc_cg/Homeworks/1_MiniDraw/documents/hello/src/hello/build-hello-Desktop_Qt_6_4_0_MSVC2019_64bit-Debug/CMakeFiles/hello.dir/embed.manifest"

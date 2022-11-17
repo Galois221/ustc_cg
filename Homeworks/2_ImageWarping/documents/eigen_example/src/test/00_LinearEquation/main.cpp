@@ -26,7 +26,7 @@ int main() {
 		b(row, 1) = 2;
 	}
 
-	MatrixXf x = A.colPivHouseholderQr().solve(b);
+	MatrixXf x = A.colPivHouseholderQr().solve(b); //colPivHouseholderQr
 
 	cout << x << endl;
 

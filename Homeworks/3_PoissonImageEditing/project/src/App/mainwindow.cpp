@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget* parent)
 	mdi_area_->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	mdi_area_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	setCentralWidget(mdi_area_);
-
+	
 	window_mapper_ = new QSignalMapper(this);
 	connect(window_mapper_, SIGNAL(mapped(QWidget*)), this, SLOT(SetActiveSubWindow(QWidget*)));
 
@@ -70,11 +70,29 @@ void MainWindow::CreateActions()
 	connect(action_restore_, SIGNAL(triggered()), this, SLOT(Restore()));
 
 	// Poisson image editting
-	action_choose_polygon_ = new QAction(tr("RectChoose"), this);
-	connect(action_choose_polygon_, SIGNAL(triggered()), this, SLOT(ChooseRect()));
+	action_choose_rect_ = new QAction(tr("RectC"), this);
+	action_choose_rect_->setStatusTip(tr("RectChoose"));
+	connect(action_choose_rect_, SIGNAL(triggered()), this, SLOT(ChooseRect()));
+
+	action_choose_polygon_ = new QAction(tr("PolygonC"), this);
+	action_choose_polygon_->setStatusTip(tr("PolygonChoose"));
+	connect(action_choose_polygon_, SIGNAL(triggered()), this, SLOT(ChoosePoly()));
+
+	action_choose_freehand_ = new QAction(tr("FreeC"), this);
+	action_choose_freehand_->setStatusTip(tr("FreehandChoose"));
+	connect(action_choose_freehand_, SIGNAL(triggered()), this, SLOT(ChooseFreehand()));
+
+	action_copy_ = new QAction(tr("Copy"), this);
+	action_copy_->setStatusTip("Copy");
+	connect(action_copy_, SIGNAL(triggered()), this, SLOT(Copy()));
 
 	action_paste_ = new QAction(tr("Paste"), this);
+	action_paste_->setStatusTip("Paste");
 	connect(action_paste_, SIGNAL(triggered()), this, SLOT(Paste()));
+
+	action_paste_mix_ = new QAction(tr("Paste(mixed)"), this);
+	action_paste_mix_->setStatusTip(tr("Paste with Poisson mixed mod"));
+	connect(action_paste_mix_, SIGNAL(triggered()), this, SLOT(Paste_mix()));
 }
 
 void MainWindow::CreateMenus()
@@ -112,8 +130,14 @@ void MainWindow::CreateToolBars()
 
 	// Poisson Image Editing
 	toolbar_file_->addSeparator();
+	toolbar_file_->addAction(action_choose_rect_);
 	toolbar_file_->addAction(action_choose_polygon_);
+	toolbar_file_->addAction(action_choose_freehand_);
+	toolbar_file_->addSeparator();
+	toolbar_file_->addAction(action_copy_);
 	toolbar_file_->addAction(action_paste_);
+	toolbar_file_->addAction(action_paste_mix_);
+
 }
 
 void MainWindow::CreateStatusBar()
@@ -225,13 +249,42 @@ void MainWindow::Restore()
 	window->imagewidget_->Restore();
 }
 
+void MainWindow::Copy()
+{
+	ChildWindow* window = GetChildWindow();
+	if (!window)
+		return;
+	window->imagewidget_->Copy();
+	window->imagewidget_->set_source_window(child_source_);
+}
+
 void MainWindow::ChooseRect()
 {
 	// Set source child window
 	ChildWindow* window = GetChildWindow();
 	if (!window)
 		return;
-	window->imagewidget_->set_draw_status_to_choose();
+	window->imagewidget_->set_draw_status_to_Rect();
+	child_source_ = window;
+}
+
+void MainWindow::ChoosePoly()
+{
+	// Set source child window
+	ChildWindow* window = GetChildWindow();
+	if (!window)
+		return;
+	window->imagewidget_->set_draw_status_to_Poly();
+	child_source_ = window;
+}
+
+void MainWindow::ChooseFreehand()
+{
+	// Set source child window
+	ChildWindow* window = GetChildWindow();
+	if (!window)
+		return;
+	window->imagewidget_->set_draw_status_to_Free();
 	child_source_ = window;
 }
 
@@ -242,6 +295,16 @@ void MainWindow::Paste()
 	if (!window)
 		return;
 	window->imagewidget_->set_draw_status_to_paste();
+	window->imagewidget_->set_source_window(child_source_);
+}
+
+void MainWindow::Paste_mix()
+{
+	// Paste image rect region to object image
+	ChildWindow* window = GetChildWindow();
+	if (!window)
+		return;
+	window->imagewidget_->set_draw_status_to_paste_mix();
 	window->imagewidget_->set_source_window(child_source_);
 }
 
