@@ -1,0 +1,30 @@
+^D:\DOCUMENTS\USTC_CG\HOMEWORKS\2_IMAGEWARPING\PROJECT\BUILD_NEW\CMAKEFILES\1E120E611007AC21C580CA00890369CE\QRC_MAINWINDOW.CPP.RULE
+setlocal
+cd D:\Documents\ustc_cg\Homeworks\2_ImageWarping\project\build_new\src\App
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Cmake\bin\cmake.exe -E cmake_autorcc D:/Documents/ustc_cg/Homeworks/2_ImageWarping/project/build_new/src/App/CMakeFiles/ImageWarping_App_autogen.dir/AutoRcc_mainwindow_EWIEGA46WW_Info.json Debug
+if %errorlevel% neq 0 goto :cmEnd
+D:\Cmake\bin\cmake.exe -E cmake_autorcc D:/Documents/ustc_cg/Homeworks/2_ImageWarping/project/build_new/src/App/CMakeFiles/ImageWarping_App_autogen.dir/AutoRcc_mainwindow_EWIEGA46WW_Info.json Release
+if %errorlevel% neq 0 goto :cmEnd
+D:\Cmake\bin\cmake.exe -E cmake_autorcc D:/Documents/ustc_cg/Homeworks/2_ImageWarping/project/build_new/src/App/CMakeFiles/ImageWarping_App_autogen.dir/AutoRcc_mainwindow_EWIEGA46WW_Info.json MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+D:\Cmake\bin\cmake.exe -E cmake_autorcc D:/Documents/ustc_cg/Homeworks/2_ImageWarping/project/build_new/src/App/CMakeFiles/ImageWarping_App_autogen.dir/AutoRcc_mainwindow_EWIEGA46WW_Info.json RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\DOCUMENTS\USTC_CG\HOMEWORKS\2_IMAGEWARPING\PROJECT\SRC\APP\CMAKELISTS.TXT
+setlocal
+D:\Cmake\bin\cmake.exe -SD:/Documents/ustc_cg/Homeworks/2_ImageWarping/project -BD:/Documents/ustc_cg/Homeworks/2_ImageWarping/project/build_new --check-stamp-file D:/Documents/ustc_cg/Homeworks/2_ImageWarping/project/build_new/src/App/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

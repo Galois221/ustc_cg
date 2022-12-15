@@ -1,0 +1,155 @@
+{
+	"BUILD_DIR" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/PoissonImageEditing_App_autogen",
+	"CMAKE_BINARY_DIR" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App",
+	"CMAKE_EXECUTABLE" : "D:/Cmake/bin/cmake.exe",
+	"CMAKE_SOURCE_DIR" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project",
+	"HEADERS" : 
+	[
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/ChildWindow.h",
+			"MU",
+			"EWIEGA46WW/moc_ChildWindow.cpp"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Figure.h",
+			"MU",
+			"EWIEGA46WW/moc_Figure.cpp"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Freehand.h",
+			"MU",
+			"EWIEGA46WW/moc_Freehand.cpp"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/ImageWidget.h",
+			"MU",
+			"EWIEGA46WW/moc_ImageWidget.cpp"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Poisson.h",
+			"MU",
+			"EWIEGA46WW/moc_Poisson.cpp"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Polygon.h",
+			"MU",
+			"EWIEGA46WW/moc_Polygon.cpp"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Rect.h",
+			"MU",
+			"EWIEGA46WW/moc_Rect.cpp"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/ScanLine.h",
+			"MU",
+			"EWIEGA46WW/moc_ScanLine.cpp"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/mainwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_mainwindow.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/PoissonImageEditing_App_autogen/include",
+	"INCLUDE_DIR_Debug" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/PoissonImageEditing_App_autogen/include_Debug",
+	"INCLUDE_DIR_MinSizeRel" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/PoissonImageEditing_App_autogen/include_MinSizeRel",
+	"INCLUDE_DIR_RelWithDebInfo" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/PoissonImageEditing_App_autogen/include_RelWithDebInfo",
+	"INCLUDE_DIR_Release" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/PoissonImageEditing_App_autogen/include_Release",
+	"MOC_COMPILATION_FILE" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/PoissonImageEditing_App_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_NO_DEBUG", "QT_WIDGETS_LIB", "WIN32" ],
+	"MOC_DEFINITIONS_Debug" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB", "WIN32" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App",
+		"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App",
+		"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/_deps/eigen",
+		"D:/Qt/5.12.1/msvc2017_64/include",
+		"D:/Qt/5.12.1/msvc2017_64/include/QtWidgets",
+		"D:/Qt/5.12.1/msvc2017_64/include/QtGui",
+		"D:/Qt/5.12.1/msvc2017_64/include/QtANGLE",
+		"D:/Qt/5.12.1/msvc2017_64/include/QtCore",
+		"D:/Qt/5.12.1/msvc2017_64/mkspecs/win32-msvc",
+		"D:/OpenCV/opencv/build/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : true,
+	"MOC_PREDEFS_CMD" : [],
+	"MOC_PREDEFS_FILE" : "",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : true,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE_Debug" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/ParseCache_Debug.txt",
+	"PARSE_CACHE_FILE_MinSizeRel" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/ParseCache_MinSizeRel.txt",
+	"PARSE_CACHE_FILE_RelWithDebInfo" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/ParseCache_RelWithDebInfo.txt",
+	"PARSE_CACHE_FILE_Release" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/ParseCache_Release.txt",
+	"QT_MOC_EXECUTABLE" : "D:/Qt/5.12.1/msvc2017_64/bin/moc.exe",
+	"QT_UIC_EXECUTABLE" : "D:/Qt/5.12.1/msvc2017_64/bin/uic.exe",
+	"QT_VERSION_MAJOR" : 5,
+	"SETTINGS_FILE" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE_Debug" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/AutogenUsed_Debug.txt",
+	"SETTINGS_FILE_MinSizeRel" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/AutogenUsed_MinSizeRel.txt",
+	"SETTINGS_FILE_RelWithDebInfo" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/AutogenUsed_RelWithDebInfo.txt",
+	"SETTINGS_FILE_Release" : "D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/src/App/CMakeFiles/PoissonImageEditing_App_autogen.dir/AutogenUsed_Release.txt",
+	"SOURCES" : 
+	[
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/ChildWindow.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Figure.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Freehand.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/ImageWidget.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Poisson.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Polygon.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/Rect.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/ScanLine.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/main.cpp",
+			"MU"
+		],
+		[
+			"D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/src/App/mainwindow.cpp",
+			"MU"
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

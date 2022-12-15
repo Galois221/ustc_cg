@@ -80,8 +80,8 @@ void add_object_rectangle(Vec v1, Vec v2, int c, int num = 500, Vec velocity = V
 	}
 }
 void add_jet() {
-	add_object_rectangle(Vec(0.05, 0.5), Vec(0.06, 0.51), 0x87CEFA, 10, Vec(7.0, 0.0));
-	//add_object_rectangle(Vec(0.5, 0.5), Vec(0.51, 0.51), 0x87CEFA, 10, Vec(0.0, -10.0));
+	//add_object_rectangle(Vec(0.05, 0.5), Vec(0.06, 0.51), 0x87CEFA, 10, Vec(7.0, 0.0));
+	add_object_rectangle(Vec(0.5, 0.5), Vec(0.51, 0.51), 0x87CEFA, 10, Vec(0.0, -10.0));
 }
 ////////////////////////////////////////////////////////////////////////////////
 int main() {

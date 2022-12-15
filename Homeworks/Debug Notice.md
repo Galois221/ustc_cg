@@ -48,3 +48,10 @@ https://zhuanlan.zhihu.com/p/110159656
 setMouseTricking(true);//：鼠标跟踪生效，即使鼠标按键没有被按下，窗口部件也会接收鼠标移动事件。鼠标只要移动就会触发mouseMoveEvent(QMouseEvent *event)
 ```
 
+学会利用网上资源：刘利刚老师那个年代就硬坑骨头
+
+核心内容：
+
+divide and conquer分而治之
+
+Coarse to fine二八原则

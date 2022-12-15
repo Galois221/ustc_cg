@@ -8,6 +8,9 @@
 #include <Engine/MeshEdit/IsotropicRemeshing.h>
 #include <Engine/MeshEdit/ShortestPath.h>
 #include <Engine/MeshEdit/MST.h>
+#include <Engine/MeshEdit/ASAP.h>
+#include <Engine/MeshEdit/ARAP.h>
+
 
 #include <Engine/Scene/SObj.h>
 #include <Engine/Scene/AllComponents.h>
@@ -194,6 +197,12 @@ void Attribute::ComponentVisitor::ImplVisit(Ptr<CmptSimulate> simulate) {
 	grid->AddButton("set x min fix", [simulate]() {
 		simulate->SetLeftFix();
 		});
+	grid->AddButton("Euler Implicit method", [simulate]() {
+		simulate->Euler_Method();
+		});
+	grid->AddButton("Fast method", [simulate]() {
+		simulate->Fast_Method();
+		});
 }
 
 // -------------- Camera --------------
@@ -352,6 +361,22 @@ void Attribute::ComponentVisitor::ImplVisit(Ptr<TriMesh> mesh) {
 	grid->AddText("- Triangle", mesh->GetIndice().size() / 3);
 	grid->AddText("- Vertex", mesh->GetPositions().size());
 
+	//------Add shape combobox------
+	QComboBox* shape = new QComboBox;
+	vector<string> shape_list = { "Square","Circle" };
+	auto shapeslot = [=](const string& item) {
+		cout << "Select shape: " << shape->currentIndex() << endl;
+	};
+	grid->AddComboBox(shape, "Para_Shape", shape_list,shapeslot);
+	//------Add Weight combobox------
+	QComboBox* weight = new QComboBox;
+	vector<string> weight_list = { "normal","cotangent" };
+	auto weightslot = [=](const string& item) {
+		cout << "Select Weight:" << weight->currentIndex() << endl;
+	};
+	grid->AddComboBox(weight, "Para_Weight", weight_list, weightslot);
+	//------
+
 	grid->AddButton("Glue", [mesh, pOGLW = attr->pOGLW]() {
 		auto glue = Glue::New(mesh);
 		glue->Run();
@@ -364,10 +389,44 @@ void Attribute::ComponentVisitor::ImplVisit(Ptr<TriMesh> mesh) {
 		pOGLW->DirtyVAO(mesh);
 	});
 
-	grid->AddButton("Paramaterize", [mesh, pOGLW = attr->pOGLW]() {
+	grid->AddButton("Paramaterize", [mesh, pOGLW = attr->pOGLW,shape,weight]() {
 		auto paramaterize = Paramaterize::New(mesh);
+		paramaterize->Set_Shape(shape->currentIndex());
+		paramaterize->Set_Weight(weight->currentIndex());
 		if (paramaterize->Run())
 			printf("Paramaterize done\n");
+		pOGLW->DirtyVAO(mesh);
+	});
+
+	grid->AddButton("Textcoord_Show", [mesh, pOGLW = attr->pOGLW, shape, weight]() {
+		auto paramaterize = Paramaterize::New(mesh);
+		paramaterize->Set_Shape(shape->currentIndex());
+		paramaterize->Set_Weight(weight->currentIndex());
+		if (paramaterize->Textcoord_Show())
+			printf("Paramaterize done\n");
+		pOGLW->DirtyVAO(mesh);
+	});
+
+	grid->AddButton("ASAP", [mesh, pOGLW = attr->pOGLW]() {
+		auto asap = ASAP::New(mesh);
+		if (asap->Run()) {
+			cout << "ASAP done!";
+		}
+		pOGLW->DirtyVAO(mesh);
+	});
+
+	grid->AddButton("ASAP_Textcoord", [mesh, pOGLW = attr->pOGLW]() {
+		auto asap = ASAP::New(mesh);
+		if (asap->Textcoord_Show())
+			printf("ASAP Textcoord done\n");
+		pOGLW->DirtyVAO(mesh);
+	});
+
+	grid->AddButton("ARAP", [mesh, pOGLW = attr->pOGLW]() {
+		auto arap = ARAP::New(mesh);
+		if (arap->Run()) {
+			cout << "ARAP done!";
+		}
 		pOGLW->DirtyVAO(mesh);
 	});
 

@@ -1,0 +1,10 @@
+^D:\DOCUMENTS\USTC_CG\HOMEWORKS\3_POISSONIMAGEEDITING\PROJECT\BULIT\CMAKEFILES\00620DC5059BED53BF64DB74EC71A1FB\GENERATE.STAMP.RULE
+setlocal
+D:\Cmake\bin\cmake.exe -SD:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project -BD:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Documents/ustc_cg/Homeworks/3_PoissonImageEditing/project/bulit/PoissonImageEditing.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

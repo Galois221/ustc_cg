@@ -1,0 +1,10 @@
+^D:\DOCUMENTS\USTC_CG\HOMEWORKS\2_IMAGEWARPING\PROJECT\CMAKELISTS.TXT
+setlocal
+D:\Cmake\bin\cmake.exe -SD:/Documents/ustc_cg/Homeworks/2_ImageWarping/project -BD:/Documents/ustc_cg/Homeworks/2_ImageWarping/project/build_new --check-stamp-file D:/Documents/ustc_cg/Homeworks/2_ImageWarping/project/build_new/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

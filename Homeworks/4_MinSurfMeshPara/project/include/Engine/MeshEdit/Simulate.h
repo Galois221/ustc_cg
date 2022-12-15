@@ -3,6 +3,8 @@
 #include <Basic/HeapObj.h>
 //#include <Engine/Primitive/MassSpring.h>
 #include <UGM/UGM>
+#include <Eigen/Dense>
+#include <Eigen/Sparse>
 
 namespace Ubpa {
 	class Simulate : public HeapObj {
@@ -45,19 +47,25 @@ namespace Ubpa {
 		void SetFix(const std::vector<unsigned>& f) { this->fixed_id = f; Init();};
 		const std::vector<pointf3>& GetVelocity() { return velocity; };
 		//void SetVelocity(const std::vector<pointf3>& v) { velocity = v; };
-
+		void SetEuler_Method() { this->method = 1; Init(); };
+		void SetFast_Method() { this->method = 2; Init(); };
 		void SetLeftFix();
 
 
 	private:
 		// kernel part of the algorithm
-		void SimulateOnce();
+		void EulerImplicit_Method();
+		void Fast_Method();
+		void GetInit_length();
+		void SetCoffMatrix();
 
 	private:
-		float h = 0.03f;  //步长
-		float stiff;
+		float h = 0.003f;  //步长
+		float stiff=100000;
+		float M = 1.0f;
+		int method = 1;
 		std::vector<unsigned> fixed_id;  //fixed point id
-
+		std::vector<bool> is_fixed;
 
 		//mesh data
 		std::vector<unsigned> edgelist;
@@ -66,6 +74,17 @@ namespace Ubpa {
 		//simulation data
 		std::vector<pointf3> positions;
 		std::vector<pointf3> velocity;
-		
+
+		std::vector<double> init_length;
+		Eigen::SparseMatrix<double> K;
+		Eigen::VectorXd b;//X-K*K^T*X
+
+		//Euler Method
+		Eigen::VectorXd f_ext;
+		Eigen::VectorXd f_int;
+		Eigen::SparseMatrix<double> Coff;
+		Eigen::SparseMatrix<double> J;
+		Eigen::SparseLU<Eigen::SparseMatrix<double>> Coff_LU;
+		Eigen::SparseMatrix<double> Mh2L;
 	};
 }

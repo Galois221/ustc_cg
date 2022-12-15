@@ -18,11 +18,11 @@ using namespace std;
 using namespace Ubpa;
 
 TriMesh::TriMesh(unsigned triNum, unsigned vertexNum,
-	const unsigned * indice,
-	const float * positions,
-	const float * normals,
-	const float * texcoords,
-	const float * tangents,
+	const unsigned* indice,
+	const float* positions,
+	const float* normals,
+	const float* texcoords,
+	const float* tangents,
 	ENUM_TYPE type)
 	: type(type)
 {
@@ -34,11 +34,11 @@ TriMesh::TriMesh(unsigned triNum, unsigned vertexNum,
 
 	for (unsigned i = 0; i < vertexNum; i++) {
 		this->positions.push_back(pointf3(positions[3 * i], positions[3 * i + 1], positions[3 * i + 2]));
-		if(normals)
+		if (normals)
 			this->normals.push_back(normalf(normals[3 * i], normals[3 * i + 1], normals[3 * i + 2]));
-		if(texcoords)
+		if (texcoords)
 			this->texcoords.push_back(pointf2(texcoords[2 * i], texcoords[2 * i + 1]));
-		if(tangents)
+		if (tangents)
 			this->tangents.push_back({ tangents[3 * i],tangents[3 * i + 1],tangents[3 * i + 2] });
 	}
 
@@ -66,11 +66,11 @@ TriMesh::TriMesh(unsigned triNum, unsigned vertexNum,
 	}
 }
 
-void TriMesh::Init(bool creator, const std::vector<unsigned> & indice,
-	const std::vector<pointf3> & positions,
-	const std::vector<normalf> & normals,
-	const std::vector<pointf2> & texcoords,
-	const std::vector<normalf> & tangents,
+void TriMesh::Init(bool creator, const std::vector<unsigned>& indice,
+	const std::vector<pointf3>& positions,
+	const std::vector<normalf>& normals,
+	const std::vector<pointf2>& texcoords,
+	const std::vector<normalf>& tangents,
 	ENUM_TYPE type)
 {
 	this->indice.clear();
@@ -122,7 +122,7 @@ void TriMesh::Init(bool creator, const std::vector<unsigned> & indice,
 		Init_AfterGenPtr();
 }
 
-bool TriMesh::Update(const std::vector<pointf3> & positions) {
+bool TriMesh::Update(const std::vector<pointf3>& positions) {
 	if (type == INVALID) {
 		printf("ERROR::TriMesh::Update:\n"
 			"\t""type == INVALID\n");
@@ -140,7 +140,7 @@ bool TriMesh::Update(const std::vector<pointf3> & positions) {
 	return true;
 }
 
-bool TriMesh::Update(const vector<pointf2> & texcoords) {
+bool TriMesh::Update(const vector<pointf2>& texcoords) {
 	if (type == INVALID) {
 		printf("ERROR::TriMesh::Update:\n"
 			"\t""type == INVALID\n");
@@ -176,11 +176,11 @@ void TriMesh::GenNormals() {
 		auto v0 = triangle->idx[0];
 		auto v1 = triangle->idx[1];
 		auto v2 = triangle->idx[2];
-		
+
 		auto d10 = positions[v0] - positions[v1];
 		auto d12 = positions[v2] - positions[v1];
 		auto wN = d12.cross(d10);
-		
+
 		for (size_t i = 0; i < 3; i++) {
 			auto v = triangle->idx[i];
 			vertexMutexes[v].lock();

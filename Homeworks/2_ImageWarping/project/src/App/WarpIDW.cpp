@@ -30,7 +30,7 @@ WarpIDW::WarpIDW(QVector<QLine*>& data_pair_)
 			A(1, 0) = A(0, 1);
 			A(1, 1) += dpy * dpy * cof;
 
-			b1[0] += dpx * dqx * cof;  //ÏµÊý£¿
+			b1[0] += dpx * dqx * cof;  
 			b1[1] += dpy * dqx * cof;
 
 			b2[0] += dpx * dqy * cof;

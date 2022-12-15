@@ -35,26 +35,32 @@ const bool plastic = true;
 const real mu_0 = E / (2 * (1 + nu));
 const real lambda_0 = E * nu / ((1+nu) * (1 - 2 * nu));
 
+/***********************************(1)*****************************************/
 struct Particle {
-  // Position and velocity
-  Vec x, v;
-  // Deformation gradient
-  Mat F;
-  // Affine momentum from APIC
-  Mat C;
-  // Determinant of the deformation gradient (i.e. volume)
-  real Jp;
-  // Color
-  int c;
+    // Position and velocity
+    Vec x, v;
+    // Deformation gradient
+    Mat F;
+    // Affine momentum from APIC
+    Mat C;
+    // Determinant of the deformation gradient (i.e. volume)
+    real Jp;
+    // Color
+    int c;
+    //ptype
+    int ptype; //0:fluid,1:jelly,2:snow
 
-  Particle(Vec x, int c, Vec v=Vec(0)) :
-    x(x),
-    v(v),
-    F(1),
-    C(0),
-    Jp(1),
-    c(c) {}
+    Particle(Vec x, int c, Vec v = Vec(0),int ptype = 2) :
+        x(x),
+        v(v),
+        F(1),
+        C(0),
+        Jp(1),
+        c(c),
+        ptype(ptype){}
 };
+////////////////////////////////////////////////////////////////////////////////
+
 
 std::vector<Particle> particles;
 
@@ -79,10 +85,13 @@ void advance(real dt) {
       Vec(0.5) * sqr(fx - Vec(0.5))
     };
 
+/***********************************(2)*****************************************/
     // Compute current Lamé parameters [http://mpm.graphics Eqn. 86]
-    auto e = std::exp(hardening * (1.0f - p.Jp));
-    auto mu = mu_0 * e;
-    auto lambda = lambda_0 * e;
+    auto e = std::exp(hardening * (1.0_f - p.Jp));
+    if (p.ptype == 1) e = 0.3;
+    auto mu = mu_0 * e, lambda = lambda_0 * e;
+    if (p.ptype == 0) mu = 0;
+////////////////////////////////////////////////////////////////////////////////
 
     // Current volume
     real J = determinant(p.F);
@@ -178,40 +187,68 @@ void advance(real dt) {
     // MLS-MPM F-update
     auto F = (Mat(1) + dt * p.C) * p.F;
 
-    Mat svd_u, sig, svd_v;
-    svd(F, svd_u, sig, svd_v);
-
-    // Snow Plasticity
-    for (int i = 0; i < 2 * int(plastic); i++) {
-      sig[i][i] = clamp(sig[i][i], 1.0f - 2.5e-2f, 1.0f + 7.5e-3f);
+/***********************************(3)*****************************************/
+    if (p.ptype == 0) {
+        p.F = Mat(1) * sqrt(determinant(F));
     }
+    else if (p.ptype == 1) {
+        p.F = F;
+    }
+    else if (p.ptype == 2) {
+        Mat svd_u, sig, svd_v;
+        svd(F, svd_u, sig, svd_v);
 
-    real oldJ = determinant(F);
-    F = svd_u * sig * transposed(svd_v);
+        // Snow Plasticity
+        for (int i = 0; i < 2 * int(plastic); i++) {
+            sig[i][i] = clamp(sig[i][i], 1.0f - 2.5e-2f, 1.0f + 7.5e-3f);
+        }
 
-    real Jp_new = clamp(p.Jp * oldJ / determinant(F), 0.6f, 20.0f);
+        real oldJ = determinant(F);
+        F = svd_u * sig * transposed(svd_v);
 
-    p.Jp = Jp_new;
-    p.F = F;
+        real Jp_new = clamp(p.Jp * oldJ / determinant(F), 0.6f, 20.0f);
+
+        p.Jp = Jp_new;
+        p.F = F;
+    }
   }
+////////////////////////////////////////////////////////////////////////////////
 }
 
-// Seed particles with position and color
-void add_object(Vec center, int c) {
-  // Randomly sample 1000 particles in the square
-  for (int i = 0; i < 1000; i++) {
-    particles.push_back(Particle((Vec::rand()*2.0f-Vec(1))*0.08f + center, c));
-  }
+/***********************************(4)*****************************************/
+void add_object(Vec center, int c,Vec velocity = Vec(0.0_f),int ptype=2) {
+    // Randomly sample 1000 particles in the square
+    for (int i = 0; i < 1000; i++) {
+        particles.push_back(Particle((Vec::rand() * 2.0f - Vec(1)) * 0.08f + center, c, velocity, ptype));
+    }
 }
+void add_object_rectangle(Vec v1, Vec v2, int c, int num = 500, Vec velocity=Vec(0.0_f), int ptype = 0) {
+    Vec box_min(min(v1.x, v2.x), min(v1.y, v2.y)), box_max(max(v1.x, v2.x), max(v1.y, v2.y));
+    int i = 0;
+    while (i < num) {
+        auto pos = Vec::rand();
+        if (pos.x > box_min.x && pos.x<box_max.x && pos.y>box_min.y && pos.y < box_max.y) {
+            particles.push_back(Particle(pos, c, velocity, ptype));
+            i++;
+        }
+    }
+}
+//add fluid
+void add_jet() {
+    add_object_rectangle(Vec(0.48, 0.05), Vec(0.52, 0.25), 0x87CEFA, 10, Vec(0.0, 18.0), 0);
+}
+void add_jet2() {
+    add_object_rectangle(Vec(0.48, 0.75), Vec(0.52, 0.95), 0xED553B, 10, Vec(0.0, 0.0), 0);
+}
+////////////////////////////////////////////////////////////////////////////////
 
 int main() {
   GUI gui("Real-time 2D MLS-MPM", window_size, window_size);
   auto &canvas = gui.get_canvas();
 
-  add_object(Vec(0.55,0.45), 0xED553B);
-  add_object(Vec(0.45,0.65), 0xF2B134);
-  add_object(Vec(0.55,0.85), 0x068587);
-
+/***********************************(5)*****************************************/
+  add_object(Vec(0.5, 0.65), 0xFFFAFA, Vec(0, 0), 2);
+////////////////////////////////////////////////////////////////////////////////
   int frame = 0;
 
   // Main Loop
@@ -231,6 +268,14 @@ int main() {
       }
       // Update image
       gui.update();
+
+      /***********************************(6)*****************************************/
+      //if (step < 5e3)
+      //{
+      //    add_jet();
+      //    add_jet2();
+      //}
+      ////////////////////////////////////////////////////////////////////////////////
 
       // Write to disk (optional)
       // canvas.img.write_as_image(fmt::format("tmp/{:05d}.png", frame++));

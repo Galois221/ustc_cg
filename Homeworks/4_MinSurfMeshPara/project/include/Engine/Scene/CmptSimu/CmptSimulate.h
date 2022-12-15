@@ -41,7 +41,8 @@ namespace Ubpa {
 		void SetStiff(float stiff) { CastTo<MassSpring>(primitive)->GetSimu()->SetStiff(stiff); };
 		void SetFix(std::vector<unsigned>& fix) { fix_id = fix; };
 		void SetLeftFix() {CastTo<MassSpring>(primitive)->GetSimu()->SetLeftFix();};
-
+		void Euler_Method() { CastTo<MassSpring>(primitive)->GetSimu()->SetEuler_Method(); };
+		void Fast_Method() { CastTo<MassSpring>(primitive)->GetSimu()->SetFast_Method(); };
 	private:
 		std::vector<unsigned> fix_id;
 		float stiffness = 1000;
