@@ -1,0 +1,10 @@
+^D:\DOCUMENTS\USTC_CG\HOMEWORKS\8_SHADER\PROJECT\SRC\APP\2_SHADOW\CMAKELISTS.TXT
+setlocal
+D:\Cmake\bin\cmake.exe -SD:/Documents/ustc_cg/Homeworks/8_Shader/project -BD:/Documents/ustc_cg/Homeworks/8_Shader/project/bulid --check-stamp-file D:/Documents/ustc_cg/Homeworks/8_Shader/project/bulid/src/app/2_shadow/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
